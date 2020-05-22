@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+    <title>Бланк "Счет на оплату"</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        body {margin-left: auto; margin-right: auto; font-size: 11pt;}
+        table.invoice_bank_rekv { border-collapse: collapse; border: 1px solid; }
+        table.invoice_bank_rekv > tbody > tr > td, table.invoice_bank_rekv > tr > td { border: 1px solid; }
+        table.invoice_items { border: 1px solid; border-collapse: collapse;}
+        table.invoice_items td, table.invoice_items th { border: 1px solid;}
+        td.al_l_pad_5 { text-align: left; padding-left: 5px}
+        td.al_r_pad_5 { text-align: right; padding-right: 5px}
+    </style>
+</head>
+<body>
+<br>
+<table width="100%" cellpadding="2" cellspacing="2" class="invoice_bank_rekv">
+    <tr>
+        <td colspan="2" rowspan="2" style="min-height:13mm; width: 105mm;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="height: 13mm;">
+                <tr>
+                    <td valign="top" class="al_l_pad_5">
+                        <div>{{dest_bank}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="bottom" style="height: 3mm;" class="al_l_pad_5">
+                        <div style="font-size:10pt;">Банк получателя        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="al_l_pad_5" style="min-height:7mm;height:auto; width: 25mm;">
+            <div>БИK</div>
+        </td>
+        <td class="al_l_pad_5" rowspan="2" style="vertical-align: top; width: 60mm;">
+            <div style=" height: 7mm; line-height: 7mm; vertical-align: middle;">{{bik_bank}}</div>
+            <div>{{dest_account_bank}}</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="al_l_pad_5" style="width: 25mm;">
+            <div>Сч. №</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="al_l_pad_5" style="min-height:6mm; height:auto; width: 50mm;">
+            <div>ИНН {{INN}}</div>
+        </td>
+        <td class="al_l_pad_5" style="min-height:6mm; height:auto; width: 55mm;">
+            <div>КПП {{KPP}}</div>
+        </td>
+        <td class="al_l_pad_5" rowspan="2" style="min-height:19mm; height:auto; vertical-align: top; width: 25mm;">
+            <div>Сч. №</div>
+        </td>
+        <td class="al_l_pad_5" rowspan="2" style="min-height:19mm; height:auto; vertical-align: top; width: 60mm;">
+            <div>{{settlment_account}}</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="min-height:13mm; height:auto;">
+
+            <table border="0" cellpadding="0" cellspacing="0" style="height: 13mm; width: 105mm;">
+                <tr>
+                    <td class="al_l_pad_5" valign="top">
+                        <div>{{org_name}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="al_l_pad_5" valign="bottom" style="height: 3mm;">
+                        <div style="font-size: 10pt;">Получатель</div>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br/>
+<br>
+
+<div style="font-weight: bold; font-size: 16pt; padding-left:5px;">
+    Счет на оплату № {{n_number}} от {{n_datetime}}</div>
+<br/>
+
+<div style="background-color:#000000; width:100%; font-size:1px; height:2px;">&nbsp;</div>
+
+<table width="100%">
+    <tr>
+        <td style="width: 30mm; padding-bottom:5px; padding-top:5px">
+            <div style=" padding-left:2px;">Поставщик<br>(Исполнитель):</div>
+        </td>
+        <td style="padding-bottom:5px; padding-top:5px" valign="bottom">
+            <div style="font-weight:bold;  padding-left:2px;">
+                {{contractor}}</div>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30mm; padding-bottom:5px; padding-top:5px">
+            <div style=" padding-left:2px;">Покупатель<br>(Заказчик):</div>
+        </td>
+        <td style="padding-bottom:5px; padding-top:5px" valign="bottom">
+            <div style="font-weight:bold;  padding-left:2px;">
+                {{buyer}}            </div>
+        </td>
+    </tr>
+	<tr>
+        <td style="width: 30mm;padding-bottom:10px; padding-top:5px">
+            <div style=" padding-left:2px;">Основание:</div>
+        </td>
+        <td>
+            <div style="font-weight:bold;  padding-left:2px;">
+                № {{osn_number}} от {{osn_date}}</div>
+        </td>
+    </tr>
+</table>
+
+
+<table class="invoice_items" width="100%" cellpadding="2" cellspacing="2">
+    <thead>
+    <tr>
+        <th style="width:13mm;">№</th>
+        <th style="width:25mm;">Услуги</th>
+        <th>Условия</th>
+        <th style="width:27mm;">Цена</th>
+        <th style="width:40mm;">Количество</th>
+        <th style="width:27mm;">Сумма</th>
+    </tr>
+    </thead>
+    <tbody >
+		<tr>
+			<td rowspan="2" align="center">1</td>
+			<td rowspan="2" class="al_l_pad_5">Телефония</td>
+			<td class="al_l_pad_5">{{cond_telephony_in}}</td>
+			<td class="al_r_pad_5">{{price_telephony_in}}</td>
+			<td class="al_r_pad_5">{{count_telephony_in}}</td>
+			<td class="al_r_pad_5">{{price_telephony_s_in}}</td>
+		</tr>
+        <tr>
+			<td class="al_l_pad_5">{{cond_telephony_out}}</td>
+			<td class="al_r_pad_5">{{price_telephony_out}}</td>
+			<td class="al_r_pad_5">{{count_telephony_out}}</td>
+			<td class="al_r_pad_5">{{price_telephony_s_out}}</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td class="al_l_pad_5">SMS</td>
+			<td class="al_l_pad_5">{{cond_sms}}</td>
+			<td class="al_r_pad_5">{{price_sms}}</td>
+			<td class="al_r_pad_5">{{count_sms}}</td>
+			<td class="al_r_pad_5">{{price_sms_s}}</td>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td class="al_l_pad_5">Интернет</td>
+			<td class="al_l_pad_5">{{cond_internet}}</td>
+			<td class="al_r_pad_5">{{price_internet}}</td>
+			<td class="al_r_pad_5">{{count_internet}}</td>
+			<td class="al_r_pad_5">{{price_internet_s}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="0" width="100%" cellpadding="1" cellspacing="1" style="margin-top: 10px">
+    <tr>
+        <td></td>
+        <td style="width:37mm; font-weight:bold;  text-align:right; ">Итого:</td>
+        <td style="width:25mm; font-weight:bold;  text-align:right;">{{price_s_all}}</td>
+    </tr>
+	<tr>
+        <td></td>
+        <td style="width:37mm; font-weight:bold;  text-align:right;">В том числе НДС:</td>
+        <td style="width:25mm; font-weight:bold;  text-align:right;">{{"{:.2f}".format(NDS)}}</td>
+    </tr>
+	<tr>
+        <td></td>
+        <td style="width:37mm; font-weight:bold;  text-align:right;">Всего к оплате:</td>
+        <td style="width:25mm; font-weight:bold;  text-align:right;">{{price_s_all}}</td>
+    </tr>
+</table>
+
+<br />
+<div style="margin-bottom: 5px"> Всего наименований 3 на сумму {{price_s_all}} рублей.</div>
+<div style="font-weight: bold">{{price_s_in_letter}}</div>
+<br />
+<br>
+<div style="margin-bottom: 5px"> Внимание! </div>
+<div style="margin-bottom: 5px">Оплата данного счета означает согласие с условиями предоставления услуг.</div>
+<div style="margin-bottom: 5px">Услуги предоставляются по факту прихода денег на р\с Поставщика</div>
+<br />
+<div style="background-color:#000000; width:100%; font-size:1px; height:2px;">&nbsp;</div>
+<br/>
+<br>
+<table border="0" width="100%" cellpadding="1" cellspacing="1" style="margin-top: 10px">
+    <tr>
+        <td>
+			<div>Руководитель </div>
+		</td>
+        <td>
+			<div style="text-align: right"><u>{% for i in range(22 - len_ruk_fio) %}&nbsp;{% endfor %}{{ruk_fio}}</u></div>
+		</td>
+        <td>
+			<div>&nbsp;&nbsp;Главный бухгалтер </div>
+		</td>
+        <td>
+			<div style="text-align: right"><u>{% for i in range(22 - len_gl_bux_fio) %}&nbsp;{% endfor %}{{gl_bux_fio}}</u></div>
+		</td>
+    </tr>
+</table>
+</body>
+</html>
