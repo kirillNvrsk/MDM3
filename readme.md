@@ -5,9 +5,9 @@
 Путь к выходному файлу задается через переменную path_to_out_pdf.
 
 Зависимости:
- 1)pdfkit
- 2)jinja2
- 3)num2t4ru (https://github.com/seriyps/ru_number_to_text)
+1)pdfkit
+2)jinja2
+3)num2t4ru (https://github.com/seriyps/ru_number_to_text)
 	
 Также на ПК должен быть установлен wkhtmltopdf. Путь к нему необходимо прописать в переменной path_to_wkhtmltopdf
 
